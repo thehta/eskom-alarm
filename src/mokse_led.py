@@ -1,9 +1,6 @@
 import RPi.GPIO as io
 import time
 
-
-
-
 def shine(stage):
     # create matrix device
     serial = spi(port=0, device=0, gpio=noop())
