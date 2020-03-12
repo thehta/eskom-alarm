@@ -23,7 +23,8 @@ def shine(stage):
     print(msg)
     show_message(device, msg, fill="white", font=proportional(CP437_FONT))
     time.sleep(1)
-    while(1):
+    i = 0
+    while(i < 10):
 #        print(msg)
 #        show_message(device, msg, fill="white", font=proportional(CP437_FONT))
 #        time.sleep(1)
@@ -35,6 +36,7 @@ def shine(stage):
             for intensity in range(16):
                 device.contrast(intensity * 16)
                 time.sleep(0.1)
+        i = i+1
 #    stages[stage]()
 """ 
 stages = {
