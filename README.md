@@ -1,2 +1,11 @@
 # Mokse
-## Get the current loadshedding status from Eskom
+API for loadshedding schedules and status.
+
+## Dependencies
+* `Java 11`
+* `Maven`
+
+## Run
+```
+mvn spring-boot:run
+```
