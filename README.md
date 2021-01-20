@@ -1,5 +1,5 @@
 # Mokse
-API for loadshedding schedules and status.
+API for loadshedding schedules and loadshedding status.
 
 ## Dependencies
 * `Java 11`
