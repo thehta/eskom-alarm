@@ -20,7 +20,7 @@ public class Schedule {
         this.inc = inc;
         this.count = count;
         this.code = code;
-        this.schedule = getSchedule(zoneArray());
+        this.schedule = generateSchedule(zoneArray());
 
         try {
             writeListToJsonArray();
@@ -29,7 +29,11 @@ public class Schedule {
         }
     }
 
-    public ArrayList<ArrayList<TimeStage>> getSchedule(int[] array) {
+    public ArrayList<ArrayList<TimeStage>> getSchedule() {
+        return schedule;
+    }
+
+    public ArrayList<ArrayList<TimeStage>> generateSchedule(int[] array) {
         ArrayList<ArrayList<TimeStage>> localSchedule = new ArrayList<ArrayList<TimeStage>>();
         int index = 0;
         for (int i = 0; i < 31; i++) {
@@ -37,13 +41,13 @@ public class Schedule {
             for (int j = 0; j < 12; j++) {
                 for (int k = 0; k < 8; k++) {
                     System.out.println(((j * 8) + k + (i * 96)));
-                    if (array[index = (j * 8 + k + i * 96)] == code) {
-                        day.add(new TimeStage((int) (Math.ceil((double) ((index % 96) + 1) / (double) 8) - 1), (int) ((8
-                                + ((index % 96) + 1 - (Math.ceil((float) ((index % 96) + 1) / (float) 8) * 8))))));
+                    if (array[index = ((j * 8) + k + (i * 96))] == code) {
+                        day.add(new TimeStage(time(index), stage(index)));
                     }
                 }
-                localSchedule.add(day);
             }
+            localSchedule.add(day);
+            System.out.println("adding day");
         }
         return localSchedule;
     }

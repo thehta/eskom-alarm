@@ -24,23 +24,26 @@ public class ContentController {
     }
 
     @GetMapping("/code")
-    public ObjectMapper schedule(@RequestParam(value = "code", defaultValue = "12") String code) throws IOException {
-        Schedule schedule = new Schedule(1, 4, 16, Integer.parseInt(code));
+    public Schedule schedule(@RequestParam(value = "code", defaultValue = "12") String code) throws IOException {
+        return new Schedule(1, 4, 16, Integer.parseInt(code));
 
-        ObjectMapper mapper = new ObjectMapper();
-        SimpleModule module = new SimpleModule("CustomTimeStageSerializer", new Version(1, 0, 0, null, null, null));
-        module.addSerializer(TimeStage.class, new CustomTimeStageSerializer());
-        mapper.registerModule(module);
-        // Car car = new Car("yellow", "renault");
-        // String carJson = mapper.writeValueAsString(car);
+        // Schedule schedule = new Schedule(1, 4, 16, Integer.parseInt(code));
 
-        final ByteArrayOutputStream out = new ByteArrayOutputStream();
-        final ObjectMapper mapper2 = new ObjectMapper();
+        // ObjectMapper mapper = new ObjectMapper();
+        // SimpleModule module = new SimpleModule("CustomTimeStageSerializer", new
+        // Version(1, 0, 0, null, null, null));
+        // module.addSerializer(TimeStage.class, new CustomTimeStageSerializer());
+        // mapper.registerModule(module);
+        // // Car car = new Car("yellow", "renault");
+        // // String carJson = mapper.writeValueAsString(car);
 
-        mapper.writeValue(out, schedule);
+        // final ByteArrayOutputStream out = new ByteArrayOutputStream();
+        // final ObjectMapper mapper2 = new ObjectMapper();
 
-        return mapper;
-        //final byte[] data = out.toByteArray();
-        //return new String(data);
+        // mapper.writeValue(out, schedule);
+
+        // return mapper;
+        // final byte[] data = out.toByteArray();
+        // return new String(data);
     }
 }
