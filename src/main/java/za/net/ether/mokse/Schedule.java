@@ -31,14 +31,6 @@ public class Schedule {
 
     public ArrayList<ArrayList<TimeStage>> getSchedule(int[] array) {
         ArrayList<ArrayList<TimeStage>> localSchedule = new ArrayList<ArrayList<TimeStage>>();
-        // for (int i = 0; i < array.length; i++) {
-        // dom = (int) Math.floor(((double) i) / (31 * 96) * 31);
-        // if (array[i] == code) {
-        // times[dom][(int) (Math.ceil((double) ((i % 96) + 1) / (double) 8) - 1)] =
-        // (int) ((8 + ((i % 96) + 1 - (Math.ceil((float) ((i % 96) + 1) / (float) 8) *
-        // 8))));
-        // }
-        // }
         int index = 0;
         for (int i = 0; i < 31; i++) {
             ArrayList<TimeStage> day = new ArrayList<TimeStage>();
@@ -132,14 +124,8 @@ public class Schedule {
         SimpleModule module = new SimpleModule("CustomTimeStageSerializer", new Version(1, 0, 0, null, null, null));
         module.addSerializer(TimeStage.class, new CustomTimeStageSerializer());
         mapper.registerModule(module);
-        // Car car = new Car("yellow", "renault");
-        // String carJson = mapper.writeValueAsString(car);
-
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
-        final ObjectMapper mapper2 = new ObjectMapper();
-
         mapper.writeValue(out, schedule);
-
         final byte[] data = out.toByteArray();
         System.out.println(new String(data));
     }
@@ -151,51 +137,16 @@ public class Schedule {
     public int stage(int i) {
         return (int) ((8 + ((i % 96) + 1 - (Math.ceil((double) ((i % 96) + 1) / (double) 8) * 8))));
     }
+
+    public int[][] linearSchedule(int[] array) {
+        int[][] times = new int[31][12];
+        for (int i = 0; i < array.length; i++) {
+            int dom = (int) Math.floor(((double) i) / (31 * 96) * 31);
+            if (array[i] == code) {
+                times[dom][(int) (Math.ceil((double) ((i % 96) + 1) / (double) 8) - 1)] = (int) ((8
+                        + ((i % 96) + 1 - (Math.ceil((float) ((i % 96) + 1) / (float) 8) * 8))));
+            }
+        }
+        return times;
+    }
 }
-
-// public static void main(String args[]) {
-// // printArr(zoneArray(1, 4, 16));
-// // printTimes(zoneArray(1, 4, 16), 11);
-// createArrayObj(zoneArray(1, 4, 16), 12);
-// }
-
-// public static void printArr(int[] array) {
-// // for (int i = 0; i < array.length; i++) {
-// // System.out.println(array[i]);
-// // }
-// for (int i = 0; i < 96; i++) {
-// for (int j = 0; j < 31; j++) {
-// System.out.print(array[i + 96 * j] + "\t");
-// }
-// System.out.println();
-// }
-// }
-
-// public static void printTimes(int[] array, int code) {
-// System.out.println("This is when you may experience loadshedding:");
-// int dom = 1;
-// int prevdom = 0;
-// for (int i = 0; i < array.length; i++) {
-// // System.out.println("DoM: " + (int) Math.floor(((double) i) / (31 * 96)*31
-// +
-// // 1));
-// dom = (int) Math.floor(((double) i) / (31 * 96) * 31 + 1);
-// if (prevdom != dom) {
-// System.out.println("Day of the Month: " + dom);
-// prevdom = dom;
-// }
-// if (array[i] == code) {
-// System.out.println(String.format("%02d:00\tStage %d",
-// (int) (Math.ceil((float) ((i % 96) + 1) / (float) 8) - 1) * 2,
-// (int) ((8 + ((i % 96) + 1 - (Math.ceil((float) ((i % 96) + 1) / (float) 8) *
-// 8))))));
-// // System.out.println("i " + (i % 96));
-// // System.out.println("grade: " + );
-// }
-// }
-// }
-
-// public static ArrayList createArrayObj(int[] array, int code) {
-
-// }
-// }
