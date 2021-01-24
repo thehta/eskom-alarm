@@ -3,6 +3,8 @@ package za.net.ether.mokse;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
@@ -13,7 +15,7 @@ public class Schedule {
     private final int count;
     private final int inc;
     private final int X = 0;
-    private ArrayList<ArrayList<TimeStage>> schedule;
+    private List<List<TimeStage>> schedule;
 
     public Schedule(int seed, int inc, int count, int code) {
         this.seed = seed;
@@ -29,12 +31,12 @@ public class Schedule {
         }
     }
 
-    public ArrayList<ArrayList<TimeStage>> getSchedule() {
+    public List<List<TimeStage>> getSchedule() {
         return schedule;
     }
 
-    public ArrayList<ArrayList<TimeStage>> generateSchedule(int[] array) {
-        ArrayList<ArrayList<TimeStage>> localSchedule = new ArrayList<ArrayList<TimeStage>>();
+    public List<List<TimeStage>> generateSchedule(int[] array) {
+        List<List<TimeStage>> localSchedule = new ArrayList<List<TimeStage>>();
         int index = 0;
         for (int i = 0; i < 31; i++) {
             ArrayList<TimeStage> day = new ArrayList<TimeStage>();

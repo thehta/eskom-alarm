@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOKSE API DOCS</title>
+</head>
+
+<body>
+    <div style="margin-left: auto; margin-right: auto; width: 50em;">
+        <h1 style="text-align: center;">MOKSE API Documentation</h1>
+        <p>MOKSE is a simple web API for retrieving scheduling and status information for Eskom Loadshedding, all of
+            which is already publicly available.</p>
+        <h2>Endpoints:</h2>
+        <p></p>
+        <div>
+            <div class="endpoint">
+                <code class="endpoint-title">
+                    /GetStatus
+                </code>
+                <p>
+                    Retrieve the current Loadshedding stage and the time that the request was made.
+                </p>
+                <div class="example">
+                    <pre>
+{<br>
+    "stage":1,<br>
+    "time":"Sat Jan 23 19:12:47 SAST 2021"<br>
+}
+                    </pre>
+                    <code>
+                </code>
+                </div>
+            </div>
+        </div>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum."</p>
+    </div>
+</body>
+
+<style>
+    .endpoint-title {
+        font-size: x-large;
+        font-weight: 600;
+    }
+
+    .endpoint {
+        padding: 1em;
+        background-color: rgb(231, 231, 231);
+        border-radius: 0.5em;
+
+    }
+
+    .example {
+        background-color: lightgray;
+        font-family: monospace;
+        padding: 1em;
+        border-radius: 0.5em;
+    }
+</style>
+
+</html>

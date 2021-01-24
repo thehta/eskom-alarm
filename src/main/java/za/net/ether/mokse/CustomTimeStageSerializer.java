@@ -12,8 +12,8 @@ public class CustomTimeStageSerializer extends StdSerializer<TimeStage> {
         this(null);
     }
 
-    public CustomTimeStageSerializer(Class<TimeStage> t) {
-        super(t);
+    public CustomTimeStageSerializer(Class<TimeStage> timeStage) {
+        super(timeStage);
     }
 
     @Override
