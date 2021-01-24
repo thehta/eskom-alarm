@@ -1,5 +1,5 @@
 # Mokse
-API for loadshedding schedules and loadshedding status.c
+API for Eskom loadshedding schedules and loadshedding status.
 
 ## Dependencies
 * `Java 11`
